@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<executable>
+    <category>MIATT.HW04.rbhossain</category>
+    <title>GradientAD</title>
+    <description>Gradient anisotropic diffusion filter for noise reduction while preserving edges.</description>
+    <version>1.0</version>
+    <contributor>Raisa Hossain (University of Iowa)</contributor>
+    <acknowledgements>ITK GradientAnisotropicDiffusionImageFilter, SlicerExecutionModel</acknowledgements>
+
+    <parameters>
+        <label>IO</label>
+        <description>Input/output parameters</description>
+        <image>
+            <name>inputVolume</name>
+            <longflag>inputVolume</longflag>
+            <label>Input Volume</label>
+            <channel>input</channel>
+            <description>Input volume to be filtered</description>
+        </image>
+        <image>
+            <name>outputVolume</name>
+            <longflag>outputVolume</longflag>
+            <label>Output Volume</label>
+            <channel>output</channel>
+            <description>Output filtered image</description>
+        </image>
+    </parameters>
+
+    <parameters>
+        <label>Filter Parameters</label>
+        <description>Anisotropic diffusion parameters</description>
+        <double>
+            <name>conductance</name>
+            <longflag>conductance</longflag>
+            <description>Conductance parameter, controls edge sensitivity</description>
+            <label>Conductance</label>
+            <default>2.0</default>
+            <constraints>
+                <minimum>0.01</minimum>
+                <maximum>10</maximum>
+                <step>0.1</step>
+            </constraints>
+        </double>
+        <double>
+            <name>timeStep</name>
+            <longflag>timeStep</longflag>
+            <description>Time step for diffusion, keep small (0.05-0.1)</description>
+            <label>Time Step</label>
+            <default>0.05</default>
+            <constraints>
+                <minimum>0.001</minimum>
+                <maximum>0.5</maximum>
+                <step>0.01</step>
+            </constraints>
+        </double>
+        <integer>
+            <name>iterations</name>
+            <longflag>iterations</longflag>
+            <description>Number of diffusion iterations</description>
+            <label>Iterations</label>
+            <default>5</default>
+            <constraints>
+                <minimum>1</minimum>
+                <maximum>100</maximum>
+                <step>1</step>
+            </constraints>
+        </integer>
+    </parameters>
+</executable>
