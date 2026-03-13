@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<executable>
+    <category>MIATT.HW04.rbhossain</category>
+    <title>GaussianLPF</title>
+    <description>Gaussian low-pass filter for noise reduction using RecursiveGaussianImageFilter.</description>
+    <version>1.0</version>
+    <contributor>Raisa Hossain (University of Iowa)</contributor>
+    <acknowledgements>ITK RecursiveGaussianImageFilter, SlicerExecutionModel</acknowledgements>
+
+    <parameters>
+        <label>IO</label>
+        <description>Input/output parameters</description>
+        <image>
+            <name>inputVolume</name>
+            <longflag>inputVolume</longflag>
+            <label>Input Volume</label>
+            <channel>input</channel>
+            <description>Input volume to be filtered</description>
+        </image>
+        <image>
+            <name>outputVolume</name>
+            <longflag>outputVolume</longflag>
+            <label>Output Volume</label>
+            <channel>output</channel>
+            <description>Output filtered image</description>
+        </image>
+    </parameters>
+
+    <parameters>
+        <label>Filter Parameters</label>
+        <description>Gaussian filter parameters</description>
+        <double>
+            <name>sigma</name>
+            <longflag>sigma</longflag>
+            <description>Standard deviation of Gaussian filter, must be greater than 0</description>
+            <label>Sigma</label>
+            <default>1.0</default>
+            <constraints>
+                <minimum>0.01</minimum>
+                <maximum>20</maximum>
+                <step>0.1</step>
+            </constraints>
+        </double>
+    </parameters>
+</executable>
