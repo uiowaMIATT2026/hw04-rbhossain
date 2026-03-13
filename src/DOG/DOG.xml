@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<executable>
+    <category>MIATT.HW04.rbhossain</category>
+    <title>DOG</title>
+    <description>Difference of Gaussians edge enhancement filter. Output rescaled to [0,255] as unsigned char.</description>
+    <version>1.0</version>
+    <contributor>Raisa Hossain (University of Iowa)</contributor>
+    <acknowledgements>ITK RecursiveGaussianImageFilter, SubtractImageFilter, RescaleIntensityImageFilter</acknowledgements>
+
+    <parameters>
+        <label>IO</label>
+        <description>Input/output parameters</description>
+        <image>
+            <name>inputVolume</name>
+            <longflag>inputVolume</longflag>
+            <label>Input Volume</label>
+            <channel>input</channel>
+            <description>Input volume to be filtered</description>
+        </image>
+        <image>
+            <name>outputVolume</name>
+            <longflag>outputVolume</longflag>
+            <label>Output Volume</label>
+            <channel>output</channel>
+            <description>Edge-enhanced output image (unsigned char 0-255)</description>
+        </image>
+    </parameters>
+
+    <parameters>
+        <label>Filter Parameters</label>
+        <description>DOG filter parameters</description>
+        <double>
+            <name>sigma1</name>
+            <longflag>sigma1</longflag>
+            <description>First Gaussian sigma, must not equal sigma2</description>
+            <label>Sigma 1</label>
+            <default>2.5</default>
+            <constraints>
+                <minimum>0.01</minimum>
+                <maximum>20</maximum>
+                <step>0.1</step>
+            </constraints>
+        </double>
+        <double>
+            <name>sigma2</name>
+            <longflag>sigma2</longflag>
+            <description>Second Gaussian sigma, must not equal sigma1</description>
+            <label>Sigma 2</label>
+            <default>3.5</default>
+            <constraints>
+                <minimum>0.01</minimum>
+                <maximum>20</maximum>
+                <step>0.1</step>
+            </constraints>
+        </double>
+    </parameters>
+</executable>
